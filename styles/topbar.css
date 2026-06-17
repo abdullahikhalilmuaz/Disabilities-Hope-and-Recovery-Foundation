@@ -1,0 +1,40 @@
+/* Top Bar Styles */
+.top-bar {
+  @apply bg-primary text-white text-sm py-2 border-b border-primary-light;
+}
+
+.top-bar-inner {
+  @apply flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4;
+}
+
+.top-bar-contact {
+  @apply flex items-center gap-2 sm:gap-3 flex-wrap justify-center;
+}
+
+.top-bar-link {
+  @apply flex items-center gap-1.5 text-white/90 hover:text-white transition-colors duration-200;
+}
+
+.top-bar-divider {
+  @apply text-white/30;
+}
+
+.top-bar-social {
+  @apply flex items-center gap-3 sm:gap-4 flex-wrap justify-center;
+}
+
+.top-bar-tagline {
+  @apply text-white/80 text-xs hidden md:inline;
+}
+
+.top-bar-social-icons {
+  @apply flex items-center gap-2;
+}
+
+.social-link {
+  @apply text-white/80 hover:text-white transition-colors duration-200 p-1;
+}
+
+.icon-sm {
+  @apply w-4 h-4;
+}
