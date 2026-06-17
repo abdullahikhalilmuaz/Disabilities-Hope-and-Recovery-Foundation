@@ -1,18 +1,26 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
+// import "@/styles/about.css";
+// import Navbar from "@/components/layout/navbar";
+// import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "DHRF – Disability Hope & Recovery Foundation",
+    default: "DHRF – Disabilities Hope & Recovery Foundation",
     template: "%s | DHRF",
   },
   description:
     "Providing healthcare, rehabilitation services, assistive devices, disability advocacy, and economic empowerment for persons with disabilities and vulnerable communities.",
-  keywords: ["disability", "rehabilitation", "NGO", "Nigeria", "inclusive health", "assistive devices"],
+  keywords: [
+    "disability",
+    "rehabilitation",
+    "NGO",
+    "Nigeria",
+    "inclusive health",
+    "assistive devices",
+  ],
   openGraph: {
-    siteName: "Disability Hope & Recovery Foundation",
+    siteName: "Disabilities Hope & Recovery Foundation",
     locale: "en_NG",
     type: "website",
   },

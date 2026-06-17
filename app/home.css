@@ -1,6 +1,16 @@
 
+/* =========================================================
+   DHRF Homepage – page.module.css
+   ========================================================= */
+
+/* ── GLOBAL RESET & BASE ── */
 .wrapper {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   color: #1a1a2e;
   background: #fff;
   min-height: 100vh;
@@ -139,7 +149,9 @@
   text-decoration: none;
   padding: 6px 10px;
   border-radius: 6px;
-  transition: color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
   white-space: nowrap;
 }
 
@@ -171,7 +183,9 @@
   font-size: 13.5px;
   font-weight: 600;
   white-space: nowrap;
-  transition: background 0.2s, transform 0.1s;
+  transition:
+    background 0.2s,
+    transform 0.1s;
   flex-shrink: 0;
 }
 
@@ -241,7 +255,9 @@
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    transform 0.15s;
 }
 
 .heroCtaPrimary:hover {
@@ -261,7 +277,10 @@
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.15s;
 }
 
 .heroCtaSecondary:hover {
@@ -281,7 +300,10 @@
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    transform 0.15s;
 }
 
 .heroCtaOutline:hover {
@@ -420,7 +442,9 @@
   border: 1px solid #e8edf5;
   display: flex;
   gap: 16px;
-  transition: box-shadow 0.22s, transform 0.22s;
+  transition:
+    box-shadow 0.22s,
+    transform 0.22s;
 }
 
 .programCard:hover {
@@ -438,12 +462,24 @@
   flex-shrink: 0;
 }
 
-.iconGreen  { background: #22c55e; }
-.iconPurple { background: #8b5cf6; }
-.iconOrange { background: #f97316; }
-.iconBlue   { background: #1a56a0; }
-.iconYellow { background: #eab308; }
-.iconRed    { background: #ef4444; }
+.iconGreen {
+  background: #22c55e;
+}
+.iconPurple {
+  background: #8b5cf6;
+}
+.iconOrange {
+  background: #f97316;
+}
+.iconBlue {
+  background: #1a56a0;
+}
+.iconYellow {
+  background: #eab308;
+}
+.iconRed {
+  background: #ef4444;
+}
 
 .programBody {
   flex: 1;
@@ -480,7 +516,9 @@
   text-decoration: none;
   margin-top: 10px;
   align-self: flex-end;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 
 .programArrow:hover {
@@ -578,7 +616,9 @@
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    transform 0.15s;
   width: fit-content;
 }
 
@@ -604,7 +644,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 
 .storyNavBtn:hover {
@@ -663,7 +705,9 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 
 .amountBtn:hover {
@@ -716,7 +760,9 @@
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    transform 0.15s;
 }
 
 .donateNowBtn:hover {
@@ -921,7 +967,9 @@
   justify-content: center;
   color: #a8b8d0;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .footerSocials a:hover {
@@ -1028,7 +1076,9 @@ a.footerContactItem:hover {
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    transform 0.15s;
 }
 
 .newsletterBtn:hover {
