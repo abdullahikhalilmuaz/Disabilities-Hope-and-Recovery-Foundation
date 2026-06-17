@@ -1,28 +1,38 @@
 import type { Metadata } from "next";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-// import "@/styles/about.css";
-// import Navbar from "@/components/layout/navbar";
-// import Footer from "@/components/layout/footer";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-heading",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: {
-    default: "DHRF – Disabilities Hope & Recovery Foundation",
-    template: "%s | DHRF",
-  },
+  title: "DHRF | Disability Hope & Recovery Foundation",
   description:
-    "Providing healthcare, rehabilitation services, assistive devices, disability advocacy, and economic empowerment for persons with disabilities and vulnerable communities.",
+    "Disability Hope & Recovery Foundation (DHRF) provides inclusive healthcare, rehabilitation services, assistive devices, disability advocacy and economic empowerment programs across Nigeria.",
   keywords: [
-    "disability",
-    "rehabilitation",
-    "NGO",
-    "Nigeria",
-    "inclusive health",
+    "DHRF",
+    "Disability Hope and Recovery Foundation",
+    "disability rights Nigeria",
     "assistive devices",
+    "rehabilitation services",
+    "inclusive healthcare",
   ],
   openGraph: {
-    siteName: "Disabilities Hope & Recovery Foundation",
-    locale: "en_NG",
+    title: "DHRF | Disability Hope & Recovery Foundation",
+    description:
+      "Empowering persons with disabilities for a better tomorrow through healthcare, rehabilitation, assistive devices and advocacy.",
     type: "website",
+    locale: "en_NG",
   },
 };
 
@@ -33,8 +43,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <main>{children}</main>
+      <body className={`${inter.variable} ${poppins.variable}`}>
+        {children}
       </body>
     </html>
   );

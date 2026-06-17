@@ -1,0 +1,95 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 480px;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(255, 255, 255, 0.92) 32%,
+    rgba(255, 255, 255, 0.55) 55%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+}
+
+.inner {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem var(--gutter) 5.5rem;
+  display: flex;
+}
+
+.content {
+  max-width: 560px;
+}
+
+.eyebrow {
+  color: var(--color-green);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1.1rem;
+}
+
+.lead {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
+  max-width: 480px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 620px;
+  }
+
+  .inner {
+    padding: 4.5rem var(--gutter) 7.5rem;
+  }
+
+  .heading {
+    font-size: 2.9rem;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+  }
+}

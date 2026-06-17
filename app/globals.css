@@ -1,4 +1,139 @@
+/* ==========================================================================
+   DHRF Design Tokens
+   ========================================================================== */
+:root {
+  /* Brand colors */
+  --color-primary: #163a8c;
+  --color-primary-hover: #122e70;
+  --color-primary-dark: #0a1c4d;
+  --color-primary-dark-alt: #0c2257;
+  --color-primary-tint: #eaf0fb;
+
+  --color-green: #1ea64c;
+  --color-green-hover: #168a3e;
+  --color-green-tint: #e7f7ec;
+
+  /* Program icon accents */
+  --color-icon-healthcare: #1ea65a;
+  --color-icon-rehab: #7c4fe0;
+  --color-icon-devices: #f4923a;
+  --color-icon-advocacy: #18b3c7;
+  --color-icon-capacity: #f0b429;
+  --color-icon-economic: #f0607a;
+
+  /* Neutrals */
+  --color-text: #1a2147;
+  --color-text-muted: #57607c;
+  --color-text-faint: #8891ab;
+  --color-border: #e4e7f1;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f6f7fb;
+  --color-white: #ffffff;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 10px 30px rgba(15, 26, 64, 0.08);
+  --shadow-elevated: 0 24px 60px rgba(8, 16, 48, 0.16);
+
+  /* Layout */
+  --max-width: 1280px;
+  --gutter: 1.5rem;
+
+  /* Motion */
+  --transition: 0.2s ease;
+
+  /* Fonts (populated by next/font in layout.tsx) */
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), sans-serif;
+  color: var(--color-text);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Accessible focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--color-green);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visually-hidden utility for screen-reader-only text */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

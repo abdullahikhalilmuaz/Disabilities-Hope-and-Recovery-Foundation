@@ -1,0 +1,52 @@
+.heading {
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.eyebrow {
+  color: var(--color-green);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.title {
+  font-size: 1.9rem;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.light .eyebrow {
+  color: var(--color-green);
+}
+
+.light .title {
+  color: var(--color-white);
+}
+
+.light .subtitle {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.25rem;
+  }
+}

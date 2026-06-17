@@ -1,92 +1,106 @@
 import {
   Stethoscope,
-  Briefcase,
+  Users,
+  Accessibility,
   Megaphone,
   GraduationCap,
-  TrendingUp,
+  Briefcase,
+  ArrowRight,
 } from "lucide-react";
-import { FaWheelchair } from "react-icons/fa";
+import SectionHeading from "@/components/ui/sectionheading";
+import styles from "./programs-preview.module.css";
 
-const ProgramsPreview = () => {
-  const programs = [
-    {
-      icon: Stethoscope,
-      title: "Inclusive Healthcare",
-      description:
-        "Providing accessible medical care, health screenings, drugs and specialist treatment.",
-    },
-    {
-      icon: Briefcase,
-      title: "Rehabilitation Services",
-      description:
-        "Physical, occupational, speech therapy and counseling to improve quality of life.",
-    },
-    {
-      icon: FaWheelchair,
-      title: "Assistive Devices",
-      description:
-        "Supporting and distributing wheelchairs, hearing aids, white canes and more.",
-    },
-    {
-      icon: Megaphone,
-      title: "Advocacy & Inclusion",
-      description:
-        "Promoting disability rights and inclusion through advocacy, public education and policy engagement.",
-    },
-    {
-      icon: GraduationCap,
-      title: "Capacity Building",
-      description:
-        "Training caregivers, teachers, health workers and community leaders on inclusive practices.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Economic Empowerment",
-      description:
-        "Skills acquisition and vocational training for self-reliance and sustainable livelihoods.",
-    },
-  ];
+interface Program {
+  title: string;
+  description: string;
+  href: string;
+  Icon: typeof Stethoscope;
+  accent: string;
+}
 
+const PROGRAMS: Program[] = [
+  {
+    title: "Inclusive Healthcare",
+    description:
+      "Providing accessible medical care, health screenings, drugs and specialist treatment.",
+    href: "/programs/healthcare",
+    Icon: Stethoscope,
+    accent: "healthcare",
+  },
+  {
+    title: "Rehabilitation Services",
+    description:
+      "Physical, occupational, speech therapy and counseling to improve quality of life.",
+    href: "/programs/rehabilitation",
+    Icon: Users,
+    accent: "rehab",
+  },
+  {
+    title: "Assistive Devices",
+    description:
+      "Supplying and distributing wheelchairs, hearing aids, white canes and more.",
+    href: "/programs/assistive-devices",
+    Icon: Accessibility,
+    accent: "devices",
+  },
+  {
+    title: "Advocacy & Inclusion",
+    description:
+      "Promoting disability rights and inclusion through advocacy, public education and policy engagement.",
+    href: "/programs/advocacy",
+    Icon: Megaphone,
+    accent: "advocacy",
+  },
+  {
+    title: "Capacity Building",
+    description:
+      "Training caregivers, teachers, health workers and community leaders on inclusive practices.",
+    href: "/programs/capacity-building",
+    Icon: GraduationCap,
+    accent: "capacity",
+  },
+  {
+    title: "Economic Empowerment",
+    description:
+      "Skills acquisition and vocational training for self-reliance and sustainable livelihoods.",
+    href: "/programs/economic-empowerment",
+    Icon: Briefcase,
+    accent: "economic",
+  },
+];
+
+export default function ProgramsPreview() {
   return (
-    <section className="section-padding bg-gray-50">
-      <div className="container-custom">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            WHAT WE DO
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Our Programs
-          </h2>
-          <p className="text-gray-600 text-lg">
-            We implement life-changing programs that promote inclusive health,
-            independence and opportunity.
-          </p>
-        </div>
+    <section className={styles.section} aria-labelledby="programs-heading">
+      <div className={styles.inner}>
+        <SectionHeading
+          eyebrow="What We Do"
+          title="Our Programs"
+          subtitle="We implement life-changing programs that promote inclusive health, independence and opportunity."
+        />
 
-        {/* Programs Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {programs.map((program, index) => {
-            const Icon = program.icon;
-            return (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-6 card-shadow hover:shadow-2xl transition-all duration-300 group"
+        <ul className={styles.grid}>
+          {PROGRAMS.map(({ title, description, href, Icon, accent }) => (
+            <li className={styles.card} key={title}>
+              <span
+                className={`${styles.iconWrap} ${styles[accent]}`}
+                aria-hidden="true"
               >
-                <div className="bg-primary/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
-                  <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{program.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {program.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+                <Icon size={22} />
+              </span>
+              <h3 className={styles.cardTitle}>{title}</h3>
+              <p className={styles.cardText}>{description}</p>
+              <a
+                href={href}
+                className={styles.cardLink}
+                aria-label={`Learn more about ${title}`}
+              >
+                <ArrowRight size={16} aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
-};
-
-export default ProgramsPreview;
+}

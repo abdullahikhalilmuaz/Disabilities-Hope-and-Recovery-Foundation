@@ -1,0 +1,260 @@
+.header {
+  position: relative;
+  z-index: 50;
+}
+
+/* Top utility bar */
+.topBar {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.8rem;
+}
+
+.topBarInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.5rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tagline {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.topBarItem {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.socialList {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.socialList a {
+  display: inline-flex;
+  opacity: 0.9;
+  transition: opacity var(--transition);
+}
+
+.socialList a:hover {
+  opacity: 1;
+}
+
+/* Main nav */
+.mainNav {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mainNavInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.85rem var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: auto;
+}
+
+.logoIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.logoName {
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--color-primary);
+}
+
+.logoSub {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  max-width: 130px;
+}
+
+/* Nav links (desktop) */
+.nav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 0.5rem 0;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.navLinkActive {
+  color: var(--color-primary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  padding: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.submenuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.submenu li a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+
+.submenu li a:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+.donateButton {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.3rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: background-color var(--transition);
+}
+
+.donateButton:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.menuToggle {
+  display: inline-flex;
+  color: var(--color-primary);
+}
+
+/* Mobile nav drawer */
+.navOpen {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  padding: 1rem var(--gutter) 1.5rem;
+}
+
+.navOpen .navList {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.navOpen .navItem {
+  width: 100%;
+}
+
+.navOpen .navLink {
+  width: 100%;
+  padding: 0.65rem 0;
+  justify-content: space-between;
+}
+
+.navOpen .submenu {
+  position: static;
+  box-shadow: none;
+  border: none;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  display: none;
+  padding-left: 0.75rem;
+}
+
+.navOpen .submenuOpen {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .topBarItem {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: block;
+  }
+
+  .donateButton {
+    display: inline-flex;
+  }
+
+  .menuToggle {
+    display: none;
+  }
+}

@@ -1,0 +1,105 @@
+.section {
+  background: var(--color-white);
+  padding: 4rem 0 3rem;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem 3rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  color: var(--color-white);
+  margin-bottom: 1.1rem;
+}
+
+.healthcare {
+  background-color: var(--color-icon-healthcare);
+}
+.rehab {
+  background-color: var(--color-icon-rehab);
+}
+.devices {
+  background-color: var(--color-icon-devices);
+}
+.advocacy {
+  background-color: var(--color-icon-advocacy);
+}
+.capacity {
+  background-color: var(--color-icon-capacity);
+}
+.economic {
+  background-color: var(--color-icon-economic);
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.cardText {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  max-width: 30ch;
+}
+
+.cardLink {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.cardLink:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

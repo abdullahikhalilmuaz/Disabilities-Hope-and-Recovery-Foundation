@@ -1,0 +1,123 @@
+.section {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary-dark-alt) 100%
+  );
+  color: var(--color-white);
+  padding: 3.5rem 0;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.heading {
+  color: var(--color-white);
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.lead {
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 480px;
+  margin-bottom: 1.75rem;
+}
+
+.amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  border: none;
+  margin-bottom: 1.75rem;
+}
+
+.amountButton {
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: var(--color-white);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.amountButton:hover {
+  border-color: var(--color-white);
+}
+
+.amountButtonActive {
+  background-color: var(--color-green);
+  border-color: var(--color-green);
+}
+
+.actionsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.ghostLight {
+  color: var(--color-white) !important;
+}
+
+.ghostLight:hover {
+  color: var(--color-white) !important;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  color: var(--color-green);
+  border: 6px solid rgba(255, 255, 255, 0.15);
+}
+
+.optionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.optionList li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.optionList li svg {
+  color: var(--color-green);
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 1.6fr 1fr;
+  }
+
+  .aside {
+    flex-direction: row;
+    align-items: center;
+  }
+}

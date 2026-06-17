@@ -1,73 +1,62 @@
-import Image from "next/image";
-import { Quote } from "lucide-react";
-import Link from "next/link";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Button from "@/components/ui/Button";
+import styles from "./success-story.module.css";
 
-const SuccessStory = () => {
+export default function SuccessStory() {
   return (
-    <section className="section-padding bg-white">
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="relative order-2 lg:order-1">
-            <div className="relative w-full h-[400px] rounded-2xl overflow-hidden bg-gradient-to-br from-secondary/20 to-primary/20">
-              <Image
-                src="/placeholder-story.jpg"
-                alt="Amina's journey of hope"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-primary text-white p-4 rounded-lg">
-              <Quote className="w-8 h-8" />
-            </div>
+    <section className={styles.section} aria-labelledby="success-story-heading">
+      <div className={styles.inner}>
+        <div className={styles.card}>
+          <div className={styles.imageWrap}>
+            {/* TODO: replace with /public/images/success-story.jpg via next/image once supplied */}
+            <img
+              src="https://picsum.photos/seed/dhrf-amina/640/640"
+              alt="Amina, a DHRF beneficiary, smiling outdoors in her wheelchair"
+              className={styles.image}
+            />
           </div>
 
-          {/* Content */}
-          <div className="order-1 lg:order-2 space-y-6">
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-              SUCCESS STORY
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold">
+          <div className={styles.content}>
+            <p className={styles.eyebrow}>Success Story</p>
+            <h2 id="success-story-heading" className={styles.title}>
               Amina&apos;s Journey of Hope
             </h2>
-
-            <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-secondary">
-              <blockquote className="text-lg text-gray-700 leading-relaxed">
-                &ldquo;After receiving a wheelchair and therapy through DHRF, I
+            <blockquote className={styles.quote}>
+              <p>
+                After receiving a wheelchair and therapy through DHRF, I
                 regained my independence. Today, I am back in school and
-                inspiring others like me.&rdquo;
-              </blockquote>
-              <p className="mt-4 text-primary font-medium">
-                - Amina, Beneficiary
+                inspiring others like me.
               </p>
-            </div>
+              <footer className={styles.attribution}>
+                — Amina, Beneficiary
+              </footer>
+            </blockquote>
 
-            <Link
-              href="#stories"
-              className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-light transition-colors"
-            >
-              Read More Stories
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
+            <div className={styles.footerRow}>
+              <Button href="/news/stories" icon={<ArrowRight size={16} />} iconPosition="right">
+                Read More Stories
+              </Button>
+
+              <div className={styles.carouselControls}>
+                <button
+                  type="button"
+                  className={styles.carouselButton}
+                  aria-label="Previous story"
+                >
+                  <ArrowLeft size={16} />
+                </button>
+                <button
+                  type="button"
+                  className={styles.carouselButton}
+                  aria-label="Next story"
+                >
+                  <ArrowRight size={16} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default SuccessStory;
+}

@@ -2,149 +2,207 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
 import {
-  FaHeart,
-  FaPhone,
-  FaEnvelope,
-  FaFacebookF,
+  Phone,
+  Mail,
+  ChevronDown,
+  Menu,
+  X,
+  Heart,
+  HeartHandshake,
+} from "lucide-react";
+
+import {
+  FaFacebook,
   FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
+  FaLinkedin,
   FaYoutube,
+  FaInstagram,
 } from "react-icons/fa";
-import { MdAccessible } from "react-icons/md";
-import "../../styles/navbar.css";
+import styles from "./navbar.module.css";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface NavLink {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/programs", label: "Programs" },
-    { href: "/impact", label: "Impact" },
-    { href: "/get-help", label: "Get Help" },
-    { href: "/get-involved", label: "Get Involved" },
-    { href: "/news", label: "News" },
-    { href: "/contact", label: "Contact" },
-  ];
+const NAV_LINKS: NavLink[] = [
+  { label: "Home", href: "/" },
+  {
+    label: "About Us",
+    href: "/about",
+    children: [
+      { label: "Our Story", href: "/about/our-story" },
+      { label: "Mission & Vision", href: "/about/mission-vision" },
+      { label: "Our Team", href: "/about/team" },
+    ],
+  },
+  {
+    label: "Programs",
+    href: "/programs",
+    children: [
+      { label: "Inclusive Healthcare", href: "/programs/healthcare" },
+      { label: "Rehabilitation Services", href: "/programs/rehabilitation" },
+      { label: "Assistive Devices", href: "/programs/assistive-devices" },
+    ],
+  },
+  {
+    label: "Impact",
+    href: "/impact",
+    children: [
+      { label: "Our Reach", href: "/impact/reach" },
+      { label: "Annual Reports", href: "/impact/reports" },
+    ],
+  },
+  { label: "Get Help", href: "/get-help" },
+  {
+    label: "Get Involved",
+    href: "/get-involved",
+    children: [
+      { label: "Volunteer", href: "/get-involved/volunteer" },
+      { label: "Partner With Us", href: "/get-involved/partner" },
+      { label: "Careers", href: "/get-involved/careers" },
+    ],
+  },
+  { label: "News", href: "/news" },
+  { label: "Contact", href: "/contact" },
+];
+
+const SOCIAL_LINKS = [
+  { label: "Facebook", href: "https://facebook.com", Icon: FaFacebook },
+  { label: "Twitter", href: "https://twitter.com", Icon: FaTwitter },
+  { label: "Instagram", href: "https://instagram.com", Icon: FaInstagram },
+  { label: "LinkedIn", href: "https://linkedin.com", Icon: FaLinkedin },
+  { label: "YouTube", href: "https://youtube.com", Icon: FaYoutube },
+];
+
+export default function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   return (
-    <header className="navbar-wrapper">
-      {/* ── TOP LEAFLET / TOP BAR ── */}
-      <div className="navbar-leaflet">
-        <div className="container-custom">
-          <div className="leaflet-inner">
-            <p className="leaflet-tagline">
-              Creating inclusive communities. Empowering lives. Restoring hope.
-            </p>
-            <div className="leaflet-right">
-              <a href="tel:+2348031234567" className="leaflet-contact">
-                <FaPhone size={12} />
-                <span>+234 803 123 4567</span>
-              </a>
-              <a href="mailto:info@dhrf.org.ng" className="leaflet-contact">
-                <FaEnvelope size={12} />
-                <span>info@dhrf.org.ng</span>
-              </a>
-              <div className="leaflet-socials">
-                <a href="#" aria-label="Facebook">
-                  <FaFacebookF size={13} />
-                </a>
-                <a href="#" aria-label="Twitter">
-                  <FaTwitter size={13} />
-                </a>
-                <a href="#" aria-label="Instagram">
-                  <FaInstagram size={13} />
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                  <FaLinkedinIn size={13} />
-                </a>
-                <a href="#" aria-label="YouTube">
-                  <FaYoutube size={13} />
-                </a>
-              </div>
-            </div>
+    <header className={styles.header}>
+      {/* Top utility bar */}
+      <div className={styles.topBar}>
+        <div className={styles.topBarInner}>
+          <p className={styles.tagline}>
+            Creating inclusive communities. Empowering lives. Restoring hope.
+          </p>
+          <div className={styles.topBarRight}>
+            <a href="tel:+2348031234567" className={styles.topBarItem}>
+              <Phone size={14} aria-hidden="true" />
+              <span>+234 803 123 4567</span>
+            </a>
+            <a href="mailto:info@dhrf.org.ng" className={styles.topBarItem}>
+              <Mail size={14} aria-hidden="true" />
+              <span>info@dhrf.org.ng</span>
+            </a>
+            <ul className={styles.socialList} aria-label="Social media links">
+              {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    aria-label={`Visit DHRF on ${label}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon size={14} aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
 
-      {/* ── MAIN NAVBAR ── */}
-      <nav className="navbar">
-        <div className="container-custom">
-          <div className="navbar-inner">
-            {/* Logo */}
-            <Link href="/" className="navbar-logo" aria-label="DHRF Home">
-              <div className="navbar-logo-icon">
-                <MdAccessible size={28} color="#fff" />
-              </div>
-              <div className="navbar-logo-text">
-                <span className="navbar-logo-brand">DHRF</span>
-                <span className="navbar-logo-sub">
-                  Disability Hope &amp; Recovery Foundation
-                </span>
-              </div>
-            </Link>
+      {/* Main navigation */}
+      <div className={styles.mainNav}>
+        <div className={styles.mainNavInner}>
+          <Link href="/" className={styles.logo} aria-label="DHRF home">
+            <span className={styles.logoIcon} aria-hidden="true">
+              <HeartHandshake size={26} />
+            </span>
+            <span className={styles.logoText}>
+              <span className={styles.logoName}>DHRF</span>
+              <span className={styles.logoSub}>
+                Disability Hope &amp; Recovery Foundation
+              </span>
+            </span>
+          </Link>
 
-            {/* Desktop Navigation */}
-            <div className="navbar-links">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`navbar-link ${
-                    link.href === "/" ? "navbar-link-active" : ""
-                  }`}
+          <nav
+            className={`${styles.nav} ${mobileOpen ? styles.navOpen : ""}`}
+            aria-label="Primary"
+          >
+            <ul className={styles.navList}>
+              {NAV_LINKS.map((link) => (
+                <li
+                  key={link.label}
+                  className={styles.navItem}
+                  onMouseEnter={() =>
+                    link.children && setOpenSubmenu(link.label)
+                  }
+                  onMouseLeave={() => link.children && setOpenSubmenu(null)}
                 >
-                  {link.label}
-                </Link>
+                  {link.children ? (
+                    <>
+                      <button
+                        type="button"
+                        className={styles.navLink}
+                        aria-expanded={openSubmenu === link.label}
+                        onClick={() =>
+                          setOpenSubmenu(
+                            openSubmenu === link.label ? null : link.label,
+                          )
+                        }
+                      >
+                        {link.label}
+                        <ChevronDown size={15} aria-hidden="true" />
+                      </button>
+                      <ul
+                        className={`${styles.submenu} ${
+                          openSubmenu === link.label ? styles.submenuOpen : ""
+                        }`}
+                      >
+                        {link.children.map((child) => (
+                          <li key={child.label}>
+                            <Link href={child.href}>{child.label}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={`${styles.navLink} ${
+                        link.label === "Home" ? styles.navLinkActive : ""
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
               ))}
-            </div>
+            </ul>
+          </nav>
 
-            {/* Desktop Donate Button */}
-            <Link href="/donate" className="donateBtn">
-              <FaHeart size={14} />
-              <span>Donate Now</span>
-            </Link>
+          <Link href="/donate" className={styles.donateButton}>
+            <Heart size={16} aria-hidden="true" />
+            <span>Donate Now</span>
+          </Link>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="navbar-mobile-btn"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className={`navbar-mobile-menu ${isOpen ? "open" : ""}`}>
-            <div className="navbar-mobile-links">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="navbar-mobile-link"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link
-                href="/donate"
-                className="navbar-mobile-donate"
-                onClick={() => setIsOpen(false)}
-              >
-                <FaHeart size={14} />
-                <span>Donate Now</span>
-              </Link>
-            </div>
-          </div>
+          <button
+            type="button"
+            className={styles.menuToggle}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((open) => !open)}
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-      </nav>
+      </div>
     </header>
   );
-};
-
-export default Navbar;
+}

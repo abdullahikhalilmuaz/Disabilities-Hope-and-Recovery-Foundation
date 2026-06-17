@@ -1,7 +1,15 @@
 import "../styles/home.css";
-import Navbar from "../components/layout/navbar";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
+import Hero from "@/components/sections/hero";
+import Impact from "@/components/sections/impact";
+import ProgramsPreview from "@/components/sections/programs-preview";
+import SuccessStory from "@/components/sections/success-story";
+import DonationCta from "@/components/sections/donation-cta";
+import Partners from "@/components/sections/partners";
 import type { Metadata } from "next";
 import Head from "next/head";
+
 import {
   FaPhone,
   FaEnvelope,
@@ -75,7 +83,17 @@ export default function Home() {
         />
       </Head>
 
- 
+       <>
+      <main id="main-content">
+        <Hero />
+        <Impact />
+        <ProgramsPreview />
+        <SuccessStory />
+        <DonationCta />
+        <Partners />
+      </main>
+      <Footer />
+    </>
         </div>;
     </>
   );
