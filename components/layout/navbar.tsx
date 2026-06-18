@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Phone,
   Mail,
@@ -11,13 +12,12 @@ import {
   Heart,
   HeartHandshake,
 } from "lucide-react";
-
 import {
   FaFacebook,
   FaTwitter,
+  FaInstagram,
   FaLinkedin,
   FaYoutube,
-  FaInstagram,
 } from "react-icons/fa";
 import styles from "./navbar.module.css";
 
@@ -78,8 +78,12 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className={styles.header}>
@@ -149,7 +153,9 @@ export default function Navbar() {
                     <>
                       <button
                         type="button"
-                        className={styles.navLink}
+                        className={`${styles.navLink} ${
+                          isActive(link.href) ? styles.navLinkActive : ""
+                        }`}
                         aria-expanded={openSubmenu === link.label}
                         onClick={() =>
                           setOpenSubmenu(
@@ -176,8 +182,9 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={`${styles.navLink} ${
-                        link.label === "Home" ? styles.navLinkActive : ""
+                        isActive(link.href) ? styles.navLinkActive : ""
                       }`}
+                      aria-current={isActive(link.href) ? "page" : undefined}
                     >
                       {link.label}
                     </Link>

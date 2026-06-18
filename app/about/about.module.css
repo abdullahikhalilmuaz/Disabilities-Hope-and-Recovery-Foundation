@@ -1,0 +1,586 @@
+/* =========================================================
+   DHRF About Page – about.module.css
+   Place at:  app/about/about.module.css
+   ========================================================= */
+
+/* ── shared reusable token ──────────────────────────────── */
+.kantras {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+}
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-green, #22c55e);
+  margin: 0 0 0.6rem;
+}
+
+/* =========================================================
+   HERO BANNER
+   ========================================================= */
+.heroBanner {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* background layer */
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  /* dark-blue gradient so text is legible over photo */
+  background: linear-gradient(
+    90deg,
+    rgba(10, 25, 60, 0.82) 0%,
+    rgba(10, 25, 60, 0.55) 55%,
+    rgba(10, 25, 60, 0.15) 100%
+  );
+}
+
+/* foreground content */
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width, 1280px);
+  width: 100%;
+  margin: 0 auto;
+  padding: 5rem var(--gutter, 2rem) 3.5rem;
+  max-width: 640px;
+  /* left-align within the full container */
+  align-self: flex-end;
+}
+
+.heroEyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-green, #22c55e);
+  margin: 0 0 0.75rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin: 0 0 1rem;
+}
+
+.heroDesc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 520px;
+}
+
+/* wide breakpoint — expand content container to full max-width */
+@media (min-width: 1024px) {
+  .heroContent {
+    max-width: var(--max-width, 1280px);
+    padding-left: var(--gutter, 2.5rem);
+  }
+
+  .heroBanner {
+    min-height: 420px;
+  }
+}
+
+/* =========================================================
+   OUR STORY
+   ========================================================= */
+.story {
+  padding: 5rem 0;
+  background: #ffffff;
+}
+
+.storyInner {
+  max-width: var(--max-width, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--gutter, 2rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.storyText {
+  max-width: 540px;
+}
+
+.storyTitle {
+  font-size: clamp(1.7rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: #0d1b36;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  margin: 0 0 1.1rem;
+}
+
+.storyBody {
+  font-size: 0.95rem;
+  color: #4a5a70;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.storyImageWrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.storyImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (min-width: 900px) {
+  .storyInner {
+    grid-template-columns: 1fr 1.05fr;
+    gap: 4rem;
+  }
+}
+
+/* =========================================================
+   MISSION / VISION / VALUES
+   ========================================================= */
+.mvv {
+  background: #f7f9ff;
+  padding: 3.5rem 0;
+}
+
+.mvvInner {
+  max-width: var(--max-width, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--gutter, 2rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.mvvCard {
+  background: #ffffff;
+  border: 1px solid #e2eaf5;
+  border-radius: 14px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* icon circle */
+.mvvIconWrap {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* accent colours via data attribute */
+.mvvIconWrap[data-accent="green"] {
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+  border: 1.5px solid rgba(34, 197, 94, 0.25);
+}
+
+.mvvIconWrap[data-accent="blue"] {
+  background: rgba(26, 86, 160, 0.1);
+  color: #1a56a0;
+  border: 1.5px solid rgba(26, 86, 160, 0.2);
+}
+
+.mvvIconWrap[data-accent="purple"] {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7c3aed;
+  border: 1.5px solid rgba(139, 92, 246, 0.2);
+}
+
+.mvvTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0d1b36;
+  margin: 0;
+}
+
+.mvvBody {
+  font-size: 0.88rem;
+  color: #4a5a70;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* values checklist */
+.valuesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.valuesList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: #2d3a50;
+  font-weight: 500;
+}
+
+.valuesCheck {
+  color: #1a56a0;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .mvvInner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================================================
+   IMPACT AT A GLANCE
+   ========================================================= */
+.impact {
+  padding: 3rem 0;
+  background: #ffffff;
+}
+
+.impactInner {
+  max-width: var(--max-width, 1280px);
+  margin: 0 auto;
+  padding: 2rem var(--gutter, 2rem);
+  border: 1px solid #e2eaf5;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* left text column */
+.impactLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.impactTitle {
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 800;
+  color: #0d1b36;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.impactDesc {
+  font-size: 0.88rem;
+  color: #4a5a70;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 300px;
+}
+
+.impactBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #22c55e;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.65rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  width: fit-content;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.impactBtn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+/* stat cards */
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.statIcon {
+  color: #22c55e;
+  margin-bottom: 0.4rem;
+}
+
+.statValue {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0d1b36;
+  line-height: 1;
+  margin: 0;
+}
+
+.statLabel {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #2d3a50;
+  margin: 0;
+}
+
+.statDesc {
+  font-size: 0.76rem;
+  color: #7a8a9a;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .impactInner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .impactLabel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .impactInner {
+    grid-template-columns: 1.4fr repeat(4, 1fr);
+  }
+
+  .impactLabel {
+    grid-column: auto;
+  }
+}
+
+/* =========================================================
+   LEADERSHIP / TEAM
+   ========================================================= */
+.team {
+  padding: 5rem 0;
+  background: #f7f9ff;
+}
+
+.teamInner {
+  max-width: var(--max-width, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--gutter, 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teamTitle {
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #0d1b36;
+  text-align: center;
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.3px;
+}
+
+.teamSubtitle {
+  font-size: 0.95rem;
+  color: #5a6a80;
+  text-align: center;
+  max-width: 520px;
+  line-height: 1.65;
+  margin: 0 0 2.75rem;
+}
+
+/* grid of cards */
+.teamGrid {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.teamCard {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2eaf5;
+  transition:
+    box-shadow 0.22s,
+    transform 0.22s;
+}
+
+.teamCard:hover {
+  box-shadow: 0 8px 32px rgba(26, 86, 160, 0.1);
+  transform: translateY(-4px);
+}
+
+.teamPhoto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.teamInfo {
+  padding: 0.9rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.teamName {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0d1b36;
+  margin: 0;
+}
+
+.teamRole {
+  font-size: 0.8rem;
+  color: #5a6a80;
+  margin: 0;
+}
+
+.teamLinkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #1a56a0;
+  color: #ffffff;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.teamLinkedin:hover {
+  background: #0f3a7a;
+}
+
+/* "View Full Team" link row */
+.teamFooter {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.teamViewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a56a0;
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.teamViewAll:hover {
+  border-color: #1a56a0;
+  color: #0f3a7a;
+}
+
+@media (min-width: 768px) {
+  .teamGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE OVERRIDES
+   ========================================================= */
+@media (max-width: 640px) {
+  .heroBanner {
+    min-height: 280px;
+  }
+
+  .heroContent {
+    padding: 3.5rem 1rem 2.5rem;
+  }
+
+  .story {
+    padding: 3rem 0;
+  }
+
+  .storyInner {
+    padding: 0 1rem;
+  }
+
+  .mvv {
+    padding: 2.5rem 0;
+  }
+
+  .mvvInner {
+    padding: 0 1rem;
+  }
+
+  .impact {
+    padding: 2rem 0;
+  }
+
+  .impactInner {
+    margin: 0 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .team {
+    padding: 3rem 0;
+  }
+
+  .teamInner {
+    padding: 0 1rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(*) {
+    transition: none !important;
+    transform: none !important;
+  }
+}
