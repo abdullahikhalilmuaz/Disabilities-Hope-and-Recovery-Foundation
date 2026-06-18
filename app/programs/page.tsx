@@ -6,7 +6,6 @@ import Navbar from "../../components/layout/navbar";
 export default function Page() {
   return;
   <>
-  
     <ProgramPage data={rehabilitationData} />;
   </>;
 }

@@ -32,11 +32,6 @@ const NAV_LINKS: NavLink[] = [
   {
     label: "About Us",
     href: "/about",
-    children: [
-      { label: "Our Story", href: "/about/our-story" },
-      { label: "Mission & Vision", href: "/about/mission-vision" },
-      { label: "Our Team", href: "/about/team" },
-    ],
   },
   {
     label: "Programs",
