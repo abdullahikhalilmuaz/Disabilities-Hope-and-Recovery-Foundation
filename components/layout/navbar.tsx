@@ -45,6 +45,11 @@ const NAV_LINKS: NavLink[] = [
       { label: "Inclusive Healthcare", href: "/programs/healthcare" },
       { label: "Rehabilitation Services", href: "/programs/rehabilitation" },
       { label: "Assistive Devices", href: "/programs/assistive-devices" },
+      { label: "Advocacy & Inclusion", href: "/programs/advocacy" },
+      { label: "Capacity Building", href: "/programs/caregiver-training" },
+      { label: "Economic Empowerment", href: "/programs/economic-empowerment" },
+      { label: "Mobile Clinics", href: "/programs/mobile-clinic" },
+      { label: "Research & Knowledge", href: "/programs/research" },
     ],
   },
   {
