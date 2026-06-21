@@ -111,6 +111,22 @@ const impactCards = [
 // Page
 // ─────────────────────────────────────────────────────────────────────────────
 export default function DonatePage() {
+  // The "Donate with Paystack" card below doesn't collect an amount, name,
+  // or email of its own — DonationWidget above already does, and is the
+  // component actually wired up to your backend's /api/donations/initialize
+  // → Paystack checkout flow. So this hands off to that form instead of
+  // duplicating it.
+  const goToDonationForm = () => {
+    const widget = document.querySelector<HTMLElement>(".donate-choose");
+    widget?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Wait for the scroll to land, then focus the first field so the donor
+    // can start typing immediately.
+    window.setTimeout(() => {
+      document.getElementById("donor-name")?.focus();
+    }, 450);
+  };
+
   return (
     <>
       {/* ══════════════════════════════════════════════════════
@@ -296,12 +312,22 @@ export default function DonatePage() {
                 ))}
               </ul>
 
-              {/* This button triggers Paystack — wire up via DonationWidget or Paystack inline */}
+              {/* This card has no amount/name/email fields of its own, so
+                  "Donate with Paystack" hands off to the real donation
+                  flow in DonationWidget above (already wired to the
+                  backend's /api/donations/initialize + Paystack checkout).
+                  We scroll there and focus the Full Name field so the
+                  donor can finish in one motion. */}
               <button
                 className="donate-method-card__btn-primary"
-                onClick={() =>
-                  alert("Paystack integration: initialise PaystackPop here")
-                }
+                onClick={() => {
+                  const nameField = document.getElementById("donor-name");
+                  nameField?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                  window.setTimeout(() => nameField?.focus(), 450);
+                }}
                 aria-label="Donate with Paystack"
               >
                 Donate with Paystack
