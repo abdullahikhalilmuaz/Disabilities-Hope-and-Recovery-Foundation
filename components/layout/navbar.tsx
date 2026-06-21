@@ -61,6 +61,7 @@ const NAV_LINKS: NavLink[] = [
     label: "Get Involved",
     href: "/get-involved",
     children: [
+      { label: "Get Involved", href: "/get-involved" },
       { label: "Volunteer", href: "/get-involved/volunteer" },
       { label: "Partner With Us", href: "/get-involved/partner" },
       { label: "Careers", href: "/get-involved/careers" },

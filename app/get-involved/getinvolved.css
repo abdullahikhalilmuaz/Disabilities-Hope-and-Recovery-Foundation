@@ -1,0 +1,476 @@
+/* ============================================================
+   DHRF — Get Involved Page CSS
+   Brand: #1B3A6B (navy) · #2E8B57 (green) · #f8fafc (light)
+   ============================================================ */
+
+/* ── 1. Hero ──────────────────────────────────────────────── */
+.gi-hero {
+  position: relative;
+  background-color: #1B3A6B;
+  overflow: hidden;
+  min-height: 340px;
+}
+
+.gi-hero__inner {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 340px;
+  align-items: stretch;
+}
+
+@media (max-width: 1023px) {
+  .gi-hero__inner { grid-template-columns: 1fr; }
+}
+
+/* Content — left */
+.gi-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 2.5rem 3.5rem 0;
+  z-index: 2;
+}
+
+@media (max-width: 1023px) {
+  .gi-hero__content { padding: 3rem 0 2rem; }
+}
+
+.gi-hero__eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2E8B57;
+  margin-bottom: 1rem;
+}
+
+.gi-hero__title {
+  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 1.1rem;
+}
+
+.gi-hero__description {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+/* Photo — right */
+.gi-hero__image-wrap {
+  position: relative;
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .gi-hero__image-wrap {
+    height: 240px;
+    order: -1;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+}
+
+/* Gradient so right image fades into navy */
+.gi-hero__image-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #1B3A6B 0%, transparent 35%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── 2. Ways to Get Involved ──────────────────────────────── */
+.gi-ways {
+  background: #fff;
+  padding: 4.5rem 0;
+}
+
+.gi-ways__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.gi-ways__title {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #1B3A6B;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* 3-column grid, 2 rows */
+.gi-ways__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .gi-ways__grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gi-ways__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Individual way card */
+.gi-way-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.gi-way-card:hover {
+  box-shadow: 0 6px 24px rgba(27, 58, 107, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Photo at top */
+.gi-way-card__img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #c9d9e8;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Icon overlay pill — top-left of each card image */
+.gi-way-card__icon-pill {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Card body */
+.gi-way-card__body {
+  padding: 1.25rem 1.4rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.gi-way-card__title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1B3A6B;
+  margin-bottom: 0.4rem;
+}
+
+.gi-way-card__desc {
+  font-size: 0.82rem;
+  color: #4a5568;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.gi-way-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1B3A6B;
+  text-decoration: none;
+  transition: gap 0.2s, color 0.2s;
+}
+
+.gi-way-card__link:hover {
+  color: #2E8B57;
+  gap: 0.55rem;
+}
+
+/* ── 3. Bottom CTA Banner ─────────────────────────────────── */
+.gi-cta {
+  background: #f0f4f8;
+  border-top: 1px solid #e2e8f0;
+  padding: 2.5rem 0;
+}
+
+.gi-cta__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.gi-cta__left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.gi-cta__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #e8eef8;
+  border: 1.5px solid #c5d3e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1B3A6B;
+  flex-shrink: 0;
+}
+
+.gi-cta__text {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1a202c;
+  max-width: 440px;
+  line-height: 1.4;
+}
+
+.gi-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.85rem 1.75rem;
+  background: #1B3A6B;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.gi-cta__btn:hover { background: #152d55; }
+
+/* ══════════════════════════════════════════════════════════
+   SUB-PAGE SHARED STYLES
+   Used by /volunteer, /partner, /careers, /advocate etc.
+══════════════════════════════════════════════════════════ */
+
+/* Sub-page hero — same navy pattern */
+.gi-sub-hero {
+  position: relative;
+  background: #1B3A6B;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.gi-sub-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.gi-sub-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(27,58,107,0.92) 50%, rgba(27,58,107,0.55));
+  z-index: 1;
+}
+
+.gi-sub-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+  width: 100%;
+}
+
+.gi-sub-hero__eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2E8B57;
+  margin-bottom: 0.75rem;
+}
+
+.gi-sub-hero__title {
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 0.85rem;
+}
+
+.gi-sub-hero__desc {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* Breadcrumb */
+.gi-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.gi-breadcrumb a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.gi-breadcrumb a:hover { color: #fff; }
+.gi-breadcrumb__active { color: #2E8B57; font-weight: 600; }
+.gi-breadcrumb__sep { opacity: 0.4; }
+
+/* Sub-page content wrapper */
+.gi-sub-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+/* Feature benefit list */
+.gi-benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gi-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: #4a5568;
+  line-height: 1.55;
+}
+
+.gi-benefit-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2E8B57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Form card */
+.gi-form-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+.gi-form-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1B3A6B;
+  margin-bottom: 1.25rem;
+}
+
+.gi-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .gi-form-grid { grid-template-columns: 1fr; }
+}
+
+.gi-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.gi-form-field--full {
+  grid-column: 1 / -1;
+}
+
+.gi-form-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.gi-form-input,
+.gi-form-select,
+.gi-form-textarea {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.85rem;
+  color: #1a202c;
+  outline: none;
+  background: #f8fafc;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.gi-form-input:focus,
+.gi-form-select:focus,
+.gi-form-textarea:focus {
+  border-color: #1B3A6B;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(27,58,107,0.1);
+}
+
+.gi-form-textarea { resize: vertical; min-height: 110px; }
+
+.gi-form-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: #1B3A6B;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+  font-family: inherit;
+}
+
+.gi-form-submit:hover { background: #152d55; }

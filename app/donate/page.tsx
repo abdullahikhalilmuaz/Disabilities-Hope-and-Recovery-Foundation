@@ -21,6 +21,8 @@ import {
 
 import DonationWidget from "@/components/donate/donation-widget";
 import CopyButton from "@/components/donate/copy-button";
+import Navbar from "../../components/layout/navbar";
+import Footer from "../../components/layout/footer";
 import "./donate.css";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -129,6 +131,7 @@ export default function DonatePage() {
 
   return (
     <>
+      <Navbar />
       {/* ══════════════════════════════════════════════════════
           1. HERO
           Light cream bg. Title left. Circular photo right.
@@ -599,6 +602,7 @@ export default function DonatePage() {
           </Link>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
