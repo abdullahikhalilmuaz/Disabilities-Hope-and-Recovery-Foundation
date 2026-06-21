@@ -37,7 +37,7 @@ const CATEGORIES = [
   "Stories",
 ];
 const PER_PAGE = 6;
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
+const API = process.env.NEXT_PUBLIC_API_URL ?? "https://disabilities-hope-and-recovery.onrender.com";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-NG", {
