@@ -51,8 +51,9 @@ const NAV_LINKS: NavLink[] = [
     label: "Impact",
     href: "/impact",
     children: [
-      { label: "Our Reach", href: "/impact/reach" },
-      { label: "Annual Reports", href: "/impact/reports" },
+      { label: "Impact", href: "/impact" },
+      { label: "Our Reach", href: "/impact/our-reach" },
+      { label: "Annual Reports", href: "/impact/annual-reports" },
     ],
   },
   { label: "Get Help", href: "/get-help" },
