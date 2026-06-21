@@ -12,7 +12,6 @@ import {
   Megaphone,
   TreePine,
   Quote,
-  Donate,
 } from "lucide-react";
 import { FaHeart, FaHandshake } from "react-icons/fa";
 import Navbar from "@/components/layout/navbar";

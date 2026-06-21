@@ -30,8 +30,13 @@ import {
   Megaphone,
   Lock,
 } from "lucide-react";
-import { verifyDonation } from "../../../../server/src/libs/donations";
-import type { DonationRecord } from "../../../../server/src/libs/donations";
+// import type { DonationRecord } from "../../../../server/src/libs/donations";
+
+import {
+  verifyDonation,
+  type DonationRecord,
+} from "@/libs/api/donations";
+
 import CopyButton from "@/components/donate/copy-button";
 import "../donate.css";
 

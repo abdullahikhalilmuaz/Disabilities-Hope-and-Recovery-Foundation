@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import { Gift, Calendar, Heart, Lock, ArrowRight, Loader2 } from "lucide-react";
-import { initializeDonation } from "../../../server/src/libs/donations";
-import type { DonationType } from "../../../server/src/libs/donations";
+// import { initializeDonation } from "../../../server/src/libs/donations";
+// import type { DonationType } from "../../../server/src/libs/donations";
 
+import {
+  initializeDonation,
+  type DonationType,
+} from "@/libs/api/donations";
 // ─────────────────────────────────────────────────────────────────────────────
 // Constants
 // ─────────────────────────────────────────────────────────────────────────────

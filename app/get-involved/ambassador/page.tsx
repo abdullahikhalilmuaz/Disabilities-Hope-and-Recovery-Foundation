@@ -7,7 +7,7 @@ import "../getinvolved.css";
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
 
-export const metadata: Metadata = {
+ const metadata: Metadata = {
   title: "Become an Ambassador | Get Involved | DHRF",
   description:
     "Represent DHRF and create awareness about disability inclusion in your community. Join our Ambassador programme today.",

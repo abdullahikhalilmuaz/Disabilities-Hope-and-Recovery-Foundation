@@ -1,12 +1,13 @@
+"use client"
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { TrendingUp, Check, ArrowRight } from "lucide-react";
+import {  Check, ArrowRight } from "lucide-react";
 import "../getinvolved.css";
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
 
-export const metadata: Metadata = {
+ const metadata: Metadata = {
   title: "Fundraise | Get Involved | DHRF",
   description:
     "Organise a fundraiser or campaign to support DHRF's mission and reach more persons with disabilities across Nigeria.",
